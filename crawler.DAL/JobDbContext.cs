@@ -58,7 +58,7 @@ namespace crawler.DAL
             }
             int idPortal = Portal.First(r => r.Name.Equals(jobParsed.Portal.Trim())).id;
 
-            if (!Job.Any(r => r.WebIdJob.Equals(jobParsed.WebIdJob.Trim())))
+            if (!Job.Any(r => r.WebIdJob.Equals(jobParsed.WebIdJob.Trim()) && r.idPortal.Equals(idPortal)))
             {
                 Job.Add(new Job()
                 {
